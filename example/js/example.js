@@ -31,6 +31,7 @@ var Stamen_TonerLite = L.tileLayer('http://stamen-tiles-{s}.a.ssl.fastly.net/ton
 
 $.ajax('https://raw.githubusercontent.com/CPLN-692-401/datasets/master/geojson/philadelphia-crime-points.geojson').done(function(data) {
   crimeData = JSON.parse(data);
+  console.log(crimeData);
   // Fixing an AWFUL bug caused by BAD data: Features *NEED* to have geometries...
   crimeData.features = _.filter(crimeData.features, function(f) { return f.geometry; });
 
@@ -100,4 +101,3 @@ $.ajax('https://raw.githubusercontent.com/CPLN-692-401/datasets/master/geojson/p
     }).addTo(map);
   });
 });
-
